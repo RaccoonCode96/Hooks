@@ -1,37 +1,38 @@
-import React, {useState} from "react";
-// import logo from './logo.svg';
+import React, {useState, useEffect, useRef} from "react";
 import './App.css';
 
-const useInput = (initialValue, validator) => {
-  const [value, setValue] = useState(initialValue); // initialValue -> value -> name
-  const onChange = (event) => {
-    const {
-      target: { value }
-    } = event;
-    let willUpdate = true; // callback 함수의 조건에 맞게 떨어졌는지 확인하는 변수
-    if (typeof validator === "function") {
-      willUpdate = validator(value); // validator callback 함수가 들어 올거니까 이름을 맞춘거임
+const useClick = (onClick) => {
+  const ref = useRef();
+  
+  useEffect(() => {
+    const element = ref.current;
+    if(element){
+      element.addEventListener("click", onClick);
     }
-    if (willUpdate) { // 검증이 되면 그때서야 value가 수정됨
-      setValue(value);
+    return () => {
+      if(element) {
+        element.removeEventListener("click", onClick); 
+      }
+      // component가 mount 되었고 나중에 componentWIllunmount 되면 event를 정리해줘야함
     }
-  };
-  return { value, onChange };
+  }, [onClick]); // [] 옵션을 통해서 무언가 update 되어도 다시 update가 안되게 함
+  if (typeof onClick !== "function") {
+    return;
+  }
+  return ref;
 };
 
 function App() {
-  const maxLen = (value) => value.length <= 10;
-  const name = useInput("Mr.", maxLen);
+  const sayHello = () => console.log("say hello");
+  const title = useClick(sayHello);
   return (
     <div className="App">
-      <h1>Hello!</h1>
-      {/* <input placeholder="Name" value={name.value} /> */}
-      <input placeholder="Name" value={name.value} onChange={name.onChange} /> 
-      {/* <input placeholder="Name" {...name} />  */}
-      {/* 위처럼 사용하면 name안에 있는 모든 것을 풀어줌 */}
+      <h1 ref={title}>Hi</h1>
     </div>
   );
-}
+};
+
+
 
 
 export default App;
