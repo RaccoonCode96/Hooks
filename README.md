@@ -2,19 +2,26 @@
 
 Collection of sexy React Hooks ready to install with NPM
 
-- [ ] useTitile
-- [ ] useInput
-- [ ] usePageLeave
-- [ ] useClick
-- [ ] useFadeIn
-- [ ] useFullscreen
+Check 'Hooks/scr/hook10' folder
+
+Try copy hook what you want and paste to App.js
+
+Start server and check the result of using hook
+
+
+- [x] useTitile
+- [x] useInput
+- [x] usePageLeave
+- [x] useClick
+- [x] useFadeIn
+- [x] useFullscreen
 - [ ] useHover
-- [ ] useNetwork
+- [x] useNetwork
 - [ ] useNotification
-- [ ] useScroll
-- [ ] useTabs
-- [ ] usePreventleave
-- [ ] useConfirm
+- [x] useScroll
+- [x] useTabs
+- [x] usePreventleave
+- [x] useConfirm
 - [ ] useAxios
 
 
