@@ -4,7 +4,7 @@ Collection of sexy React Hooks ready to install with NPM
 
 Check 'Hooks/scr/hook10' folder
 
-Try copy hook what you want and paste to App.js
+Try to copy hook what you want and paste to App.js
 
 Start server and check the result of using hook
 
@@ -17,7 +17,7 @@ Start server and check the result of using hook
 - [x] useFullscreen
 - [ ] useHover
 - [x] useNetwork
-- [ ] useNotification
+- [x] useNotification
 - [x] useScroll
 - [x] useTabs
 - [x] usePreventleave
